@@ -14,11 +14,13 @@ import android.widget.Button;
 public class signin extends AppCompatActivity {
 
 Button signup;
+    Button signin;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signin);
         signup=(Button)findViewById(R.id.button2);
+        signin=(Button)findViewById(R.id.button);
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -26,6 +28,14 @@ Button signup;
                 startActivity(i);
             }
         });
+        signin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(signin.this, Main.class);
+                startActivity(i);
+            }
+        });
+
     }
 
     @Override
