@@ -1,8 +1,5 @@
 package com.example.khodary.jamhub;
 
-import android.widget.ArrayAdapter;
-
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 /**
@@ -16,10 +13,10 @@ public interface myInterface {
     public void setUploader(String uploader);
     public void setDuration(int duration);
     public void setTags(ArrayList<String> tags);
-    public void setAncestor(Tracks ancestor);
+    public void setAncestor(Track ancestor);
     public void setID(int id);
-    public void setInstruments(ArrayList<String> instruments);
-    public void setChildren(ArrayList<Tracks> children);
+    public void setInstrument(String instrument);
+    public void setChildren(ArrayList<Track> children);
 
     public String getImageUrl();
     public String getTitle();
@@ -28,8 +25,8 @@ public interface myInterface {
     public String getUploader();
     public int getDuration();
     public ArrayList<String> getTags();
-    public Tracks getAncestor();
+    public Track getAncestor();
     public int getID();
-    public ArrayList<String> getInstruments();
+    public String getInstrument();
 }
 

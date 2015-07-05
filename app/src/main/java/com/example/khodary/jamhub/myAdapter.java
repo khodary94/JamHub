@@ -45,7 +45,7 @@ public class myAdapter extends ArrayAdapter<myInterface> {
         final myInterface item = items.get(position);
 
         txtTitle.setText(item.getTitle());
-        txtLikes.setText(Float.toString(item.getLikesCount()));
+        txtLikes.setText(Float.toString(item.getLikes()));
         rateBar.setRating(item.getRating());
 
         rowView.setOnClickListener(new View.OnClickListener(){
