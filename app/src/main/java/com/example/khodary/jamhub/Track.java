@@ -25,7 +25,7 @@ public class Track {
     private double rating;              //track average rating
     private int raters;                 //number of raters
 
-    //public static int id=0;
+    public static int id=0;
 
     public Track(String name, String uploader, boolean band, int duration, String imgurl, ArrayList<String> tags, String instrument){
         this.name = name;
