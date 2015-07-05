@@ -4,14 +4,22 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListView;
+
+import java.util.ArrayList;
 
 
 public class MainActivity extends ActionBarActivity {
-
+    ListView list;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        ArrayList<Tracks> tracksList = new ArrayList<Tracks>();
+        list = (ListView) findViewById(R.id.tracksList);
+        myAdapter tracksAdap = new myAdapter(this, MainActivity.class, (ArrayList<myInterface>) (ArrayList<?>) tracksList);
+        list.setAdapter(tracksAdap);
     }
 
     @Override
