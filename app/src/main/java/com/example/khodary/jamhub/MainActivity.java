@@ -16,7 +16,7 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ArrayList<Tracks> tracksList = new ArrayList<Tracks>();
+        ArrayList<Track> tracksList = new ArrayList<Track>();
         list = (ListView) findViewById(R.id.tracksList);
         myAdapter tracksAdap = new myAdapter(this, MainActivity.class, (ArrayList<myInterface>) (ArrayList<?>) tracksList);
         list.setAdapter(tracksAdap);

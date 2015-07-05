@@ -1,19 +1,17 @@
 package com.example.khodary.jamhub;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 
 /**
- * Created by Mostafa on 6/29/2015.
+ * Created by Khodary on 7/5/15.
  */
-public class Track {
-    private String name;                //track name
+public class Track implements myInterface {
+    private String title;                //track name
     private String uploader;            //track auploader name
     private boolean band;               //true it the uploader is band
-    private int trackID;                //track id
+    private int id;                //track id
     private int duration;               //in seconds
-    private String imgurl;              //image source location
+    private String imageUrl;              //image source location
     private String upload_date;           //track upload date
     private ArrayList<String> tags;     //track tags
     private Track ancestor;             //ID of ancestor track, null if solo
@@ -22,106 +20,112 @@ public class Track {
     //private ArrayList<String> instruments;          //names of instrucments involved
     private String instrument;
     private int likes;                  //number of likes
-    private double rating;              //track average rating
-    private int raters;                 //number of raters
+    private float rating;
+    private int raters;
 
-    //public static int id=0;
+    @Override
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
 
-    public Track(String name, String uploader, boolean band, int duration, String imgurl, ArrayList<String> tags, String instrument){
-        this.name = name;
+    @Override
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    @Override
+    public void setRating(float rating) {
+        this.rating = rating;
+    }
+
+    @Override
+    public void setLikes(int likes) {
+        this.likes = likes;
+    }
+
+    @Override
+    public void setUploader(String uploader) {
         this.uploader = uploader;
-        this.band = band;
-        //trackID = ++id;
+    }
+
+    @Override
+    public void setDuration(int duration) {
         this.duration = duration;
-        this.imgurl = imgurl;
-        Date date = new Date();
-        upload_date = new SimpleDateFormat("dd-MM-yyyy").format(date);
+    }
+
+    @Override
+    public void setTags(ArrayList<String> tags) {
         this.tags = tags;
-        ancestor = null;
-        children = null;
-        //contributors = null;
-        this.instrument = instrument;
-        likes = 0;
-        rating = 0;
-        raters = 0;
     }
 
-    public Track(String uploader, boolean band, String instrument, Track ancestor){
-        this.name = ancestor.name;
-        this.uploader = uploader;
-        this.band = band;
-        trackID = ++id;
-        this.duration = ancestor.duration;
-        this.tags = ancestor.tags;
+    @Override
+    public void setAncestor(Track ancestor) {
         this.ancestor = ancestor;
-        children = null;
-        //contributors = ancestor.contributors;
-        //contributors.add(ancestor.uploader);
+    }
+
+    @Override
+    public void setID(int id) {
+        this.id = id;
+    }
+
+    @Override
+    public void setInstrument(String instrument) {
         this.instrument = instrument;
-        likes = 0;
-        rating = 0;
-        raters = 0;
-
-        ancestor.children.add(this);
     }
 
-    public void setName(String name){
-        this.name = name;
+    @Override
+    public void setChildren(ArrayList<Track> children) {
+        this.children = children;
     }
 
-    public void setImgurl(String imgurl) {
-        this.imgurl = imgurl;
+    @Override
+    public String getImageUrl() {
+        return imageUrl;
     }
 
-    public void addTag(String tag){
-        tags.add(tag);
+    @Override
+    public String getTitle() {
+        return title;
     }
 
-    public void addTags(ArrayList<String> tags){
-        this.tags.addAll(tags);
+    @Override
+    public float getRating() {
+        return rating;
     }
 
-    public void like(){
-        likes = likes++;
+    @Override
+    public int getLikes() {
+        return likes;
     }
 
-    public void rate(double rating){
-        double totalRating = (double) (this.rating * raters);
-        totalRating += rating;
-        raters++;
-        this.rating = totalRating / raters;
-    }
-
-    public int getTrackID(){
-        return trackID;
-    }
-
-    public String getImgurl() {
-        return imgurl;
-    }
-
-    public String getUploader(){
+    @Override
+    public String getUploader() {
         return uploader;
     }
 
-    public String getInstrument(){
-        return instrument;
-    }
-
-    public int getDuration(){
+    @Override
+    public int getDuration() {
         return duration;
     }
 
-    public String getUpload_date() {
-        return upload_date;
+    @Override
+    public ArrayList<String> getTags() {
+        return tags;
     }
 
-    public Track getAncestor(){
+    @Override
+    public Track getAncestor() {
         return ancestor;
     }
 
-    public ArrayList<Track> getChildren(){
-        return children;
+    @Override
+    public int getID() {
+        return id;
+    }
+
+    @Override
+    public String getInstrument() {
+        return instrument;
     }
 
     public ArrayList<String> getContributors(){
