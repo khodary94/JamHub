@@ -46,7 +46,7 @@ public class Track {
         raters = 0;
     }
 
-    public Track(String uploader, boolean band, String instrument, Track ancestor){
+    public Track(String uploader, boolean band, String instrument, Track ancestorn, int id){
         this.name = ancestor.name;
         this.uploader = uploader;
         this.band = band;
