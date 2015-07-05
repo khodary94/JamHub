@@ -1,5 +1,9 @@
 package com.example.khodary.jamhub;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 
 /**
@@ -36,6 +40,36 @@ public class Track implements myInterface {
     public Track(String Uploader, boolean band, String instrument, Track original){
 
     }
+
+    public static JSONArray toJsonArray(ArrayList<Track> tracks){
+        JSONArray trackArray = new JSONArray();
+        for(Track track : tracks){
+            trackArray.put(track.toJSONObject());
+        }
+        return trackArray;
+    }
+
+    public JSONObject toJSONObject(){
+        JSONObject trackOb= new JSONObject();
+        try {
+            //String encodedImage = convertToBase64();
+
+            trackOb.put("Title", this.getTitle());
+            trackOb.put("Uploader", this.getUploader());
+            trackOb.put("Duration", this.getDuration());
+            trackOb.put("Tags", this.getTags());
+            trackOb.put("Likes", this.getLikes());
+            trackOb.put("Duration", this.getDuration());
+            trackOb.put("Rating", this.getRating());
+            trackOb.put("Instrument", this.getInstrument());
+            //contact.put("Image", encodedImage);
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return trackOb;
+    }
+
     @Override
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
