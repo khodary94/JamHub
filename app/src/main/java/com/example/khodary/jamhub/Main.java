@@ -5,6 +5,7 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.widget.Toast;
 
 public class Main extends FragmentActivity {
 
@@ -12,6 +13,9 @@ public class Main extends FragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+
+        Track Test = new Track("OurFirstTrack", "Us", false, 56, ServerManager.getServerURL()+"url", null, "guitar");
+        Toast.makeText(this, Test.getUpload_date(), Toast.LENGTH_SHORT).show();
 
         ViewPager pager = (ViewPager) findViewById(R.id.viewPager);
         pager.setAdapter(new MyPagerAdapter(getSupportFragmentManager()));
