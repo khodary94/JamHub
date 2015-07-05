@@ -20,18 +20,18 @@ public class Track {
     private ArrayList<Track> children;          //ID of children tracks, empty if last jam
     //private ArrayList<String> contributors;         //names of contributing users
     //private ArrayList<String> instruments;          //names of instrucments involved
-    String instrument;
+    private String instrument;
     private int likes;                  //number of likes
     private double rating;              //track average rating
     private int raters;                 //number of raters
 
-    public static int id=0;
+    //public static int id=0;
 
     public Track(String name, String uploader, boolean band, int duration, String imgurl, ArrayList<String> tags, String instrument){
         this.name = name;
         this.uploader = uploader;
         this.band = band;
-        trackID = ++id;
+        //trackID = ++id;
         this.duration = duration;
         this.imgurl = imgurl;
         Date date = new Date();
