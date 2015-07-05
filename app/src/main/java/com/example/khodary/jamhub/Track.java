@@ -23,6 +23,19 @@ public class Track implements myInterface {
     private float rating;
     private int raters;
 
+    public Track(String title, String uploader, boolean band, int duration, String imageUrl,
+                 ArrayList<String> tags, String instrument){
+        this.title = title;
+        this.uploader = uploader;
+        this.band = band;
+        this.duration = duration;
+        this.imageUrl = imageUrl;
+        this.tags = tags;
+        this.instrument = instrument;
+    }
+    public Track(String Uploader, boolean band, String instrument, Track original){
+
+    }
     @Override
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
